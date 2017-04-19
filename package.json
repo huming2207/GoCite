@@ -1,0 +1,23 @@
+{
+  "name": "go.cite",
+  "version": "1.0.0",
+  "description": "Simple Harvard Referencing app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "quick",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Jackson Ming Hu",
+  "license": "CC-BY-NC-SA 3.0",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  },
+  "repository": {
+      
+  }
+}

@@ -1,0 +1,13 @@
+
+/* Search Textbox, from http://bootsnipp.com/snippets/featured/custom-search-input */
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}

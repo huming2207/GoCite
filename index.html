@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Go.Cite</title>
+    <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|PT+Sans+Narrow:700" rel="stylesheet">
+
+
+    <!-- Workaround for Electron, see http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
+    <script>
+        if (typeof module === 'object') {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="scripts/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="scripts/jquery.min.js"></script>
+
+    <!-- Workaround for Electron -->
+    <script>
+        if (window.module) module = window.module;
+    </script>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <!-- Search box referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">Go</button>
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
