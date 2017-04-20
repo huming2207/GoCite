@@ -16,11 +16,12 @@
         }
     </script>
 
+    <script src="scripts/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" href="scripts/bootstrap.min.css">
     <link rel="stylesheet" href="styles/index.css">
-    <script src="scripts/jquery.min.js"></script>
+
 
     <!-- Workaround for Electron -->
     <script>
@@ -29,19 +30,67 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <!-- Search box referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="Search" />
-                            <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">Go</button>
-                    </span>
+    <div class="container">
+        <div class="container text-center">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#doi-menu">DOI Query</a></li>
+                <li><a data-toggle="pill" href="#isbn-menu">ISBN Query</a></li>
+                <li><a data-toggle="pill" href="#issn-menu">ISSN Query</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div id="doi-menu" class="tab-pane fade in active">
+                <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
+                <div class="container text-center" id="search-container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-lg" placeholder="Query by DOI" />
+                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button">Go</button></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="container" id="result-container">
+
+                </div>
+            </div>
+            <div id="isbn-menu" class="tab-pane fade">
+                <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
+                <div class="container text-center" id="search-container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-lg" placeholder="Query by ISBN" />
+                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button">Go</button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="result-container">
+
+                </div>
+            </div>
+            <div id="issn-menu" class="tab-pane fade">
+                <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
+                <div class="container text-center" id="search-container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="custom-search-input">
+                                <div class="input-group col-md-12">
+                                    <input type="text" class="form-control input-lg" placeholder="Query by ISSN (Experimental)" />
+                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button">Go</button></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="result-container">
+
                 </div>
             </div>
         </div>
