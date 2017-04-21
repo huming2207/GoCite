@@ -17,10 +17,30 @@
     </script>
 
     <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/openlibrary-parser.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles/index.css">
+
+    <!-- Testing dark theme
+    <script src="scripts/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" href="scripts/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/index.css"> -->
 
 
     <!-- Workaround for Electron -->
@@ -31,14 +51,15 @@
 
 <body>
     <div class="container">
-        <div class="container text-center">
-            <ul class="nav nav-pills">
+        <div class="container text-center" id="top-nav-tabbar">
+            <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="pill" href="#doi-menu">DOI Query</a></li>
                 <li><a data-toggle="pill" href="#isbn-menu">ISBN Query</a></li>
                 <li><a data-toggle="pill" href="#issn-menu">ISSN Query</a></li>
             </ul>
         </div>
         <div class="tab-content">
+            <!-- DOI Menu -->
             <div id="doi-menu" class="tab-pane fade in active">
                 <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
                 <div class="container text-center" id="search-container">
@@ -53,10 +74,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="container" id="result-container">
-
+                <div class="container" id="doi-result-container">
+                    <ul class="list-group" id="result-list">
+                        <li class="list-group-item">Result shows here...</li>
+                    </ul>
                 </div>
             </div>
+
+            <!-- ISBN Menu -->
             <div id="isbn-menu" class="tab-pane fade">
                 <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
                 <div class="container text-center" id="search-container">
@@ -64,17 +89,21 @@
                         <div class="col-md-6">
                             <div id="custom-search-input">
                                 <div class="input-group col-md-12">
-                                    <input type="text" class="form-control input-lg" placeholder="Query by ISBN" />
-                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button">Go</button></span>
+                                    <input type="text" class="form-control input-lg" id="isbn-textbox" placeholder="Query by ISBN" />
+                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button" onclick="parse_isbn_json()">Go</button></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container" id="result-container">
-
+                    <ul class="list-group" id="isbn-result-list">
+                        <li class="list-group-item">Result shows here...</li>
+                    </ul>
                 </div>
             </div>
+
+            <!-- ISSN Menu -->
             <div id="issn-menu" class="tab-pane fade">
                 <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
                 <div class="container text-center" id="search-container">
@@ -89,8 +118,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="container" id="result-container">
-
+                <div class="container" id="issn-result-container">
+                    <ul class="list-group" id="issn-result-list">
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                        <li class="list-group-item">Result shows here...</li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -1,3 +1,14 @@
+#top-nav-tabbar
+{
+    padding: 10px;
+}
+
+#issn-result-list
+{
+    height: 380px;
+    overflow-x: hidden !important;
+}
+
 #search-container
 {
     padding: 30px;
