@@ -3,7 +3,9 @@
     padding: 10px;
 }
 
-#issn-result-list
+#issn-result-list,
+#isbn-result-list,
+#doi-result-list
 {
     height: 380px;
     overflow-x: hidden !important;
