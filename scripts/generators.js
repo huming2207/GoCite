@@ -18,6 +18,10 @@ function generate_author(authors)
             given_name_initials += names[name_index].match(given_name_regex);
         }
 
+        // Three cases, 
+        //    1. the first one should be directly appended
+        //    2. the second one until the last one should be appended with a comma
+        //    3. the last one should be appended with "&" symbol
         if(author_index == 0)
         {
             author_ref += names[(names.length - 1)] + ", " + given_name_initials;

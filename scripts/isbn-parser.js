@@ -23,10 +23,10 @@ function parse_isbn_json()
             }
 
             // Generate reference string
-            var ref_str = generate_book_ref(details.by_statement, 
+            var ref_str = generate_book_ref(details.by_statement, // Workaround for author, format is "given1 surname1, given2 surname2, ..."
                                         details.publish_date, 
                                         details.edition_name, 
-                                        details.publish_places["0"].split(", ")["0"],
+                                        details.publish_places["0"].split(", ")["0"], // Get the larger area only if it gives more than one
                                         details.publishers["0"],
                                         details.title);
             
@@ -47,7 +47,8 @@ function generate_book_ref(authors_raw, publish_date, edition, publish_addr, pub
 {
     var author = generate_author(authors_raw);
     
-    if(publish_addr)
+    // If edition is not found, then just generate the reference without it
+    if(edition)
     {
         var book_ref = author + " " +  publish_date + ", <em>" + title + "</em>, " + publisher + ", " + publish_addr + ".";
     }

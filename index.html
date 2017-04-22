@@ -19,6 +19,7 @@
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/generators.js"></script>
     <script src="scripts/isbn-parser.js"></script>
+    <script src="scripts/doi-parser.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -68,8 +69,8 @@
                         <div class="col-md-6">
                             <div id="custom-search-input">
                                 <div class="input-group col-md-12">
-                                    <input type="text" class="form-control input-lg" id="doi-textbox" placeholder="Query by DOI" />
-                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button">Go</button></span>
+                                    <input type="text" class="form-control input-lg" id="doi-textbox" placeholder="Query by DOI"/>
+                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button" onclick="parse_doi_json()">Go</button></span>
                                 </div>
                             </div>
                         </div>
