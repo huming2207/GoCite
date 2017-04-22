@@ -17,7 +17,8 @@
   "devDependencies": {
     "electron": "~1.6.7"
   },
-  "repository": {
-      
+  "repository": {},
+  "dependencies": {
+    "clipboard": "^1.6.1"
   }
 }

@@ -48,13 +48,13 @@ function generate_book_ref(authors_raw, publish_date, edition, publish_addr, pub
     var author = generate_author(authors_raw);
     
     // If edition is not found, then just generate the reference without it
-    if(edition)
+    if(!edition)
     {
         var book_ref = author + " " +  publish_date + ", <em>" + title + "</em>, " + publisher + ", " + publish_addr + ".";
     }
     else
     {
-        var book_ref = author + " " +  publish_date + ", <em>" + title + "</em>, " + edition + ", " + publisher + ", " + publish_addr + ".";  
+        var book_ref = author + " " +  publish_date + ", <em>" + title + "</em>, " + edition.toString().replace("ed.", "edn") + ", " + publisher + ", " + publish_addr + ".";  
     }
 
     return book_ref;
