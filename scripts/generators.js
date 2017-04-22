@@ -1,16 +1,15 @@
 "use strict";
 
-function generate_author(authors_raw)
+function generate_author(authors)
 {
-    var author = "";
-
+    var author_ref = "";
+    var authors_list = authors.replace(".", "").split(", ")
     var given_name_regex = /[A-Z]/i; // Get all upper case letters from given name
 
 
-
-    for(var author_index = 0; author_index < authors_raw.length; author_index++)
+    for(var author_index = 0; author_index < authors_list.length; author_index++)
     {
-        var names = authors_raw[author_index].name.toString().split(" ");
+        var names = authors_list[author_index].split(" ");
         var given_name_initials = "";
 
         // Filter all given names and get the initials
@@ -21,19 +20,19 @@ function generate_author(authors_raw)
 
         if(author_index == 0)
         {
-            author += names[(names.length - 1)] + ", " + given_name_initials;
+            author_ref += names[(names.length - 1)] + ", " + given_name_initials;
         }
-        else if(author_index == (names.length  - 1))
+        else if(author_index == (authors_list.length  - 1))
         {
-            author += " & " + names[(names.length  - 1)] + ", " + given_name_initials;
+            author_ref += " & " + names[(names.length  - 1)] + ", " + given_name_initials;
         }
         else
         {
-            author += ", " + names[(names.length  - 1)] + ", " + given_name_initials;
+            author_ref += ", " + names[(names.length  - 1)] + ", " + given_name_initials;
         }
     }
 
-    return author;
+    return author_ref;
 }
 
 

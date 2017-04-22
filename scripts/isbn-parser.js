@@ -23,10 +23,10 @@ function parse_isbn_json()
             }
 
             // Generate reference string
-            var ref_str = generate_book_ref(details.authors, 
+            var ref_str = generate_book_ref(details.by_statement, 
                                         details.publish_date, 
                                         details.edition_name, 
-                                        details.publish_places["0"],
+                                        details.publish_places["0"].split(", ")["0"],
                                         details.publishers["0"],
                                         details.title);
             
