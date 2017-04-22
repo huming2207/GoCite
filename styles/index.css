@@ -11,7 +11,14 @@
     overflow-x: hidden !important;
 }
 
-#search-container
+#about-container
+{
+    height: 400px;
+    overflow: auto;
+}
+
+#isbn-search-container,
+#doi-search-container
 {
     padding: 30px;
 }

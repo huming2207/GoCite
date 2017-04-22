@@ -6,7 +6,7 @@
     <meta charset="utf-8">
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu|PT+Sans+Narrow:700" rel="stylesheet">
-
+    <script src="scripts/version.js"></script>
 
     <!-- Workaround for Electron, see http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined -->
     <script>
@@ -57,14 +57,14 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="pill" href="#doi-menu">DOI Query</a></li>
                 <li><a data-toggle="pill" href="#isbn-menu">ISBN Query</a></li>
-                <li><a data-toggle="pill" href="#issn-menu">ISSN Query</a></li>
+                <li><a data-toggle="pill" href="#about-menu" onclick="get_version()">About</a></li>
             </ul>
         </div>
         <div class="tab-content">
             <!-- DOI Menu -->
             <div id="doi-menu" class="tab-pane fade in active">
                 <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
-                <div class="container text-center" id="search-container">
+                <div class="container text-center" id="doi-search-container">
                     <div class="row">
                         <div class="col-md-6">
                             <div id="custom-search-input">
@@ -86,7 +86,7 @@
             <!-- ISBN Menu -->
             <div id="isbn-menu" class="tab-pane fade">
                 <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
-                <div class="container text-center" id="search-container">
+                <div class="container text-center" id="isbn-search-container">
                     <div class="row">
                         <div class="col-md-6">
                             <div id="custom-search-input">
@@ -105,41 +105,21 @@
                 </div>
             </div>
 
-            <!-- ISSN Menu -->
-            <div id="issn-menu" class="tab-pane fade">
-                <!-- Search textbox container referenced from: http://bootsnipp.com/snippets/featured/custom-search-input -->
-                <div class="container text-center" id="search-container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div id="custom-search-input">
-                                <div class="input-group col-md-12">
-                                    <input type="text" class="form-control input-lg" placeholder="Query by ISSN (Experimental)" />
-                                    <span class="input-group-btn"><button class="btn btn-info btn-lg" type="button">Go</button></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container" id="issn-result-container">
-                    <ul class="list-group" id="issn-result-list">
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
-                        <li class="list-group-item">Result shows here...</li>
+            <!-- About Menu -->
+            <div id="about-menu" class="tab-pane fade">
+                <div class="container" id="about-container">
+                    <h3>About this app</h3>
+                    <p><b>Version: </b><span id="app-version">Unknown</span></p>
+                    <p><b>Environment: </b><span id="env-version">Unknown</span></p>
+                    <p><b>Language: </b><span id="lang-version">Unknown</span></p>
+                    <br>
+                    <p><b>By "Jackson" Ming Hu @ Melbourne, Australia, April 2017</b></p>
+                    <p><b>This open-source project is protected by CC-BY-NC-SA 3.0 Australian licence, and it is designed for educational purposes only.</b></p>
+                    <p>Special thanks to: </p>
+                    <ul>
+                        <li><b>K. J. who inspired me to work on this project.</b></li>
+                        <li><a href="https://openlibrary.org" >OpenLibrary API</a> for ISBN search</li>
+                        <li><a href="https://github.com/CrossRef/rest-api-doc/blob/master/rest_api.md" >CrossRef API</a> for DOI and ISSN search</li>
                     </ul>
                 </div>
             </div>
