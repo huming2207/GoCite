@@ -23,7 +23,7 @@ function parse_isbn_json()
             }
 
             // Generate reference string
-            var ref_str = generate_book_ref(details.by_statement, // Workaround for author, format is "given1 surname1, given2 surname2, ..."
+            var ref_str = generate_book_ref(details.authors["0"].name, // So far only one author's name can be parsed due to upstream API bugs
                                         details.publish_date, 
                                         details.edition_name, 
                                         details.publish_places["0"].split(", ")["0"], // Get the larger area only if it gives more than one
