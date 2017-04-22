@@ -1,21 +1,30 @@
 "use strict";
 
 const electron = require('electron')
+
 // Module to control application life.
 const app = electron.app
+
+// Set a menu, workaround for macOS app, see https://pracucci.com/atom-electron-enable-copy-and-paste.html
+const Menu = electron.Menu
+
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
 
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 500, height: 500})
+  mainWindow = new BrowserWindow({
+    width: 500,
+    height: 500
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -23,6 +32,65 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+  // Workaround for electron copy/paste function
+  // Create the Application's main menu
+  var menu_template = [{
+    label: "GoCite",
+    submenu: [{
+        label: "About GoCite",
+        selector: "orderFrontStandardAboutPanel:"
+      },
+      {
+        type: "separator"
+      },
+      {
+        label: "Quit",
+        accelerator: "Command+Q",
+        click: function () {
+          app.quit();
+        }
+      }
+    ]
+  }, {
+    label: "Edit",
+    submenu: [{
+        label: "Undo",
+        accelerator: "CmdOrCtrl+Z",
+        selector: "undo:"
+      },
+      {
+        label: "Redo",
+        accelerator: "Shift+CmdOrCtrl+Z",
+        selector: "redo:"
+      },
+      {
+        type: "separator"
+      },
+      {
+        label: "Cut",
+        accelerator: "CmdOrCtrl+X",
+        selector: "cut:"
+      },
+      {
+        label: "Copy",
+        accelerator: "CmdOrCtrl+C",
+        selector: "copy:"
+      },
+      {
+        label: "Paste",
+        accelerator: "CmdOrCtrl+V",
+        selector: "paste:"
+      },
+      {
+        label: "Select All",
+        accelerator: "CmdOrCtrl+A",
+        selector: "selectAll:"
+      }
+    ]
+  }];
+
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menu_template));
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
